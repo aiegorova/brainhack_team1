@@ -30,8 +30,14 @@ public class ChatController {
     ResponseEntity getSubwayLines() {
 
         List<SubwayLine> lines = subwayLinesService.getSubwayLines();
-        return new ResponseEntity(lines, HttpStatus.OK);
+        return new ResponseEntity<>(lines, HttpStatus.OK);
 
     }
+    @GetMapping("chatmessages")
+    ResponseEntity getChatMessage() {
 
+        List<ChatMessage> history = chatMessageService.getChatMessage();
+        return new ResponseEntity(history, HttpStatus.OK);
+
+    }
 }

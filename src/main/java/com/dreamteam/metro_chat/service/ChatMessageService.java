@@ -16,13 +16,16 @@ public class ChatMessageService {
     @Autowired
     private final ChatMessageRepository chatMessageRepository;
 
-    public ChatMessageService(ChatMessageRepository chatMessageRepository){
+    public ChatMessageService(ChatMessageRepository chatMessageRepository) {
         this.chatMessageRepository = chatMessageRepository;
     }
 
-    public ChatMessage createChatMessage(ChatMessage chatMessage){
+    public ChatMessage createChatMessage(ChatMessage chatMessage) {
         chatMessage.setCreatedat(LocalDateTime.now());
         return chatMessageRepository.save(chatMessage);
     }
 
+    public List<ChatMessage> getChatMessage() {
+        return chatMessageRepository.findAll();
+    }
 }
