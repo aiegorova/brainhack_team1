@@ -17,8 +17,10 @@ public class SubwayLinesService {
         this.subwayLinesRepository = subwayLinesRepository;
     }
 
-    public List<SubwayLine> findAll(){
+    public List<SubwayLine> getSubwayLines(){
         return subwayLinesRepository.findAll();
     }
+
+
 
 }
