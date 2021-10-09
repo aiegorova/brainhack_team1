@@ -6,7 +6,7 @@
 
 
 ##### Table1
-| Обозначение | Описание | Пример регулярного выражения|
+| column1 | column2 | column3|
 |----:|:----:|:----------|
-| literal | Строка содержит символьный литерал literal | foo |
-| re1&#124;re2 | Строка содержит регулярные выражения `rel` или `re2` | foo&#124;bar |
+| left | center | right |
+| Lorem ipsum | Lorem 'ipsum' | Lorem ipsum |
