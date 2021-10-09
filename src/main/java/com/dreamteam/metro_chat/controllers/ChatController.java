@@ -16,8 +16,7 @@ public class ChatController {
     @Autowired
     private SubwayLinesService subwayLinesService;
 
-    @PostMapping
-    @ResponseStatus
+    @GetMapping("chat")
     ResponseEntity sendMessage(@RequestBody ChatMessage chatMessage) {
         return new ResponseEntity<>(HttpStatus.OK);
     }
