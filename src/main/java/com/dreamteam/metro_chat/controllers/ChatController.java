@@ -3,8 +3,10 @@ package com.dreamteam.metro_chat.controllers;
 import com.dreamteam.metro_chat.models.ChatMessage;
 import com.dreamteam.metro_chat.models.ChatMessageResponse;
 import com.dreamteam.metro_chat.models.SubwayLine;
+import com.dreamteam.metro_chat.models.User;
 import com.dreamteam.metro_chat.service.ChatMessageService;
 import com.dreamteam.metro_chat.service.SubwayLinesService;
+import com.dreamteam.metro_chat.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,9 @@ public class ChatController {
     private SubwayLinesService subwayLinesService;
     @Autowired
     private ChatMessageService chatMessageService;
+    @Autowired
+    private UserService userService;
+
 
     @GetMapping("/chat")
     ResponseEntity<ChatMessageResponse> sendMessage(@RequestBody ChatMessage chatMessage) {
@@ -38,6 +43,11 @@ public class ChatController {
 
         List<ChatMessage> history = chatMessageService.getChatMessage();
         return new ResponseEntity(history, HttpStatus.OK);
-
     }
+
+    @PostMapping("users")
+    ResponseEntity createUser(@RequestBody User user) {
+        return new ResponseEntity(userService.getUserRepository(user), HttpStatus.OK);
+    }
+
 }
