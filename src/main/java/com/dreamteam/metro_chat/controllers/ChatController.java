@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class ChatController {
@@ -32,7 +33,6 @@ public class ChatController {
     @GetMapping("subwaylines")
     @CrossOrigin(origins = "http://localhost:4200")
     ResponseEntity getSubwayLines() {
-
         List<SubwayLine> lines = subwayLinesService.getSubwayLines();
         return new ResponseEntity<>(lines, HttpStatus.OK);
 
@@ -51,4 +51,10 @@ public class ChatController {
         return new ResponseEntity(userService.getUserRepository(user), HttpStatus.OK);
     }
 
+    @GetMapping("users")
+    @CrossOrigin(origins = "http://localhost:4200")
+    ResponseEntity getUserEmail(@RequestBody User user) {
+        Optional<User> userEmail = userService.getUserEmail(user.getEmail());
+        return new ResponseEntity(userEmail, HttpStatus.OK);
+    }
 }
