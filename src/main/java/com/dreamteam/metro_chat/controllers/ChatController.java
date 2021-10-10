@@ -33,20 +33,25 @@ public class ChatController {
     }
 
     @GetMapping("subwaylines")
+    @CrossOrigin(origins = "http://localhost:4200")
     ResponseEntity getSubwayLines() {
 
         List<SubwayLine> lines = subwayLinesService.getSubwayLines();
         return new ResponseEntity<>(lines, HttpStatus.OK);
 
     }
-    @GetMapping("chatmessages")
-    ResponseEntity getChatMessage() {
 
-        List<ChatMessage> history = chatMessageService.getChatMessage();
+    @GetMapping("chatmessages")
+    @CrossOrigin(origins = "http://localhost:4200")
+    ResponseEntity getChatMessages(@RequestParam Integer line_id) {
+
+        List<ChatMessage> history = chatMessageService.getChatMessages(line_id);
         return new ResponseEntity(history, HttpStatus.OK);
+
     }
 
     @PostMapping("users")
+    @CrossOrigin(origins = "http://localhost:4200")
     ResponseEntity createUser(@RequestBody User user) {
         return new ResponseEntity(userService.getUserRepository(user), HttpStatus.OK);
     }

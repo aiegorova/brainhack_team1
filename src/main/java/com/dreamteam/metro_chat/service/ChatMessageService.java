@@ -25,7 +25,7 @@ public class ChatMessageService {
         return chatMessageRepository.save(chatMessage);
     }
 
-    public List<ChatMessage> getChatMessage() {
-        return chatMessageRepository.findAll();
+    public List<ChatMessage> getChatMessages(Integer line_id) {
+        return chatMessageRepository.findByLineId(line_id);
     }
 }
