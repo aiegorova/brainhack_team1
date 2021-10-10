@@ -45,6 +45,10 @@ public class ChatMessageDto {
         return createdat;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -63,5 +67,9 @@ public class ChatMessageDto {
 
     public void setCreatedat(LocalDateTime createdat) {
         this.createdat = createdat;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
