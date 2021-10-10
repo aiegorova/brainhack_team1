@@ -10,8 +10,8 @@ public class ChatMessage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column
-    private Integer line_id;
+    @Column(name="line_id")
+    private Integer lineId;
     @Column
     private Integer sender_id;
     @Column
@@ -23,8 +23,8 @@ public class ChatMessage {
         return id;
     }
 
-    public Integer getLine_id() {
-        return line_id;
+    public Integer getLineId() {
+        return lineId;
     }
 
     public Integer getSender_id() {
@@ -43,8 +43,8 @@ public class ChatMessage {
         this.id = id;
     }
 
-    public void setLine_id(Integer line_id) {
-        this.line_id = line_id;
+    public void setLineId(Integer lineId) {
+        this.lineId = lineId;
     }
 
     public void setSender_id(Integer sender_id) {
