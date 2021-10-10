@@ -1,9 +1,6 @@
 package com.dreamteam.metro_chat.controllers;
 
-import com.dreamteam.metro_chat.models.ChatMessage;
-import com.dreamteam.metro_chat.models.ChatMessageResponse;
-import com.dreamteam.metro_chat.models.SubwayLine;
-import com.dreamteam.metro_chat.models.User;
+import com.dreamteam.metro_chat.models.*;
 import com.dreamteam.metro_chat.service.ChatMessageService;
 import com.dreamteam.metro_chat.service.SubwayLinesService;
 import com.dreamteam.metro_chat.service.UserService;
@@ -44,9 +41,8 @@ public class ChatController {
     @GetMapping("chatmessages")
     @CrossOrigin(origins = "http://localhost:4200")
     ResponseEntity getChatMessages(@RequestParam Integer line_id) {
-        List<ChatMessage> history = chatMessageService.getChatMessages(line_id);
+        List<ChatMessageDto> history = chatMessageService.getChatMessages(line_id);
         return new ResponseEntity(history, HttpStatus.OK);
-
     }
 
     @PostMapping("users")
