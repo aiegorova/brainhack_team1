@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ChatMessageRepository extends JpaRepository<ChatMessage, Integer> {
 
-    List<ChatMessage> findByLineId(Integer lineId);
+    List<ChatMessage> findByLineIdAndIdGreaterThan(Integer lineId, Integer id);
 
 }

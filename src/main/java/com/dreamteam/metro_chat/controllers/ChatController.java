@@ -44,7 +44,6 @@ public class ChatController {
     @GetMapping("chatmessages")
     @CrossOrigin(origins = "http://localhost:4200")
     ResponseEntity getChatMessages(@RequestParam Integer line_id) {
-
         List<ChatMessage> history = chatMessageService.getChatMessages(line_id);
         return new ResponseEntity(history, HttpStatus.OK);
 

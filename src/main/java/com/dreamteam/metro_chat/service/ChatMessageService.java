@@ -1,9 +1,7 @@
 package com.dreamteam.metro_chat.service;
 
 import com.dreamteam.metro_chat.models.ChatMessage;
-import com.dreamteam.metro_chat.models.SubwayLine;
 import com.dreamteam.metro_chat.repository.ChatMessageRepository;
-import com.dreamteam.metro_chat.repository.SubwayLinesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +10,8 @@ import java.util.List;
 
 @Service
 public class ChatMessageService {
+
+    private Integer lastId = 0;
 
     @Autowired
     private final ChatMessageRepository chatMessageRepository;
@@ -26,6 +26,10 @@ public class ChatMessageService {
     }
 
     public List<ChatMessage> getChatMessages(Integer line_id) {
-        return chatMessageRepository.findByLineId(line_id);
+        List<ChatMessage> messages = chatMessageRepository.findByLineIdAndIdGreaterThan(line_id, lastId);
+        if (messages.size() > 0) {
+            lastId = messages.get(messages.size() - 1).getId();
+        }
+        return messages;
     }
 }
