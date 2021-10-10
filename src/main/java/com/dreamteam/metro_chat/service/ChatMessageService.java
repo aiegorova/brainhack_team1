@@ -14,6 +14,7 @@ import java.util.List;
 public class ChatMessageService {
 
     private Integer lastId = 0;
+    private Integer lastIdUser2 = 0;
 
     @Autowired
     private final ChatMessageRepository chatMessageRepository;

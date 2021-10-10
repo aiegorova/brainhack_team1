@@ -18,7 +18,7 @@ public class ChatMessageDto {
         this.message = chatMessage.getMessage();
         this.createdat = chatMessage.getCreatedat();
 
-        if (id == 1) {
+        if (sender_id == 1) {
             userName = "Violeta";
         } else {
             userName = "Arkady";
