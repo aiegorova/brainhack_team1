@@ -20,7 +20,8 @@ public class ChatController {
     @Autowired
     private ChatMessageService chatMessageService;
 
-    @GetMapping("/chat")
+    @PostMapping("/chat")
+    @CrossOrigin(origins = "http://localhost:4200")
     ResponseEntity<ChatMessageResponse> sendMessage(@RequestBody ChatMessage chatMessage) {
         ChatMessage createdMessage = chatMessageService.createChatMessage(chatMessage);
         return new ResponseEntity<>(new ChatMessageResponse(chatMessage), HttpStatus.OK);
